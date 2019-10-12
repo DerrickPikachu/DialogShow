@@ -3,9 +3,14 @@ package com.example.dialogshow;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements DialogInterface.OnClickListener {
+
+    TextView responseTxv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,9 +21,25 @@ public class MainActivity extends AppCompatActivity {
                                  .setTitle("Android Questionnaire")
                                  .setIcon(android.R.drawable.ic_menu_edit)
                                  .setCancelable(false)
-                                 .setPositiveButton("Yes", null)
-                                 .setNegativeButton("No", null)
-                                 .setNeutralButton(" so-so", null)
+                                 .setPositiveButton("Yes", this)
+                                 .setNegativeButton("No", this)
+                                 .setNeutralButton(" so-so", this)
                                  .show();
+
+        responseTxv = findViewById(R.id.hint);
+
+    }
+
+    @Override
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (i == DialogInterface.BUTTON_POSITIVE) {
+            responseTxv.setText("You like Android phonw!!");
+        }
+        else if (i == DialogInterface.BUTTON_NEGATIVE) {
+            responseTxv.setText("You don't like Android phone!!");
+        }
+        else if (i == DialogInterface.BUTTON_NEUTRAL) {
+            responseTxv.setText("How about try to use Android phone?");
+        }
     }
 }
