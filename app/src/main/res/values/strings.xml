@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">DialogShow</string>
-    <string name="exit">Please press the return button again to exit</string>
+    <string name="exit">Tell me what you like</string>
 </resources>

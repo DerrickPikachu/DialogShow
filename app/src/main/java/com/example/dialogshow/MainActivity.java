@@ -12,9 +12,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new AlertDialog.Builder(this).setMessage("Alert Dialog practice!!")
-                                 .setTitle("Welcome")
-                                 .setIcon(R.mipmap.ic_launcher)
+        new AlertDialog.Builder(this).setMessage("Do you like Android phone?")
+                                 .setTitle("Android Questionnaire")
+                                 .setIcon(android.R.drawable.ic_menu_edit)
+                                 .setCancelable(false)
+                                 .setPositiveButton("Yes", null)
+                                 .setNegativeButton("No", null)
+                                 .setNeutralButton(" so-so", null)
                                  .show();
     }
 }
